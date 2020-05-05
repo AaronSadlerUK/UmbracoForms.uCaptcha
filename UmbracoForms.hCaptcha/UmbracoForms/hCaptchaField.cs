@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -37,7 +37,7 @@ public sealed class hCaptchaField : FieldType
     public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContextBase context, IFormStorage formStorage)
     {
         string errorMessage;
-        if (field.Settings.ContainsKey("ErrorMessage"))
+        if (field.Settings.ContainsKey("ErrorMessage") && !string.IsNullOrEmpty(field.Settings["ErrorMessage"]))
         {
             errorMessage = field.Settings["ErrorMessage"];
         }
