@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
-using AaronSadlerBlog.Core.UmbracoForms.Models;
 using Newtonsoft.Json;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Attributes;
@@ -11,6 +10,7 @@ using Umbraco.Forms.Core.Data.Storage;
 using Umbraco.Forms.Core.Enums;
 using Umbraco.Forms.Core.Models;
 using UmbracoForms.HCaptcha;
+using UmbracoForms.HCaptcha.UmbracoForms.Models;
 
 public sealed class hCaptchaField : FieldType
 {

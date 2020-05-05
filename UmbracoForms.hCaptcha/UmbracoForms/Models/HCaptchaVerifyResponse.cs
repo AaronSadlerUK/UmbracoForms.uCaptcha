@@ -1,7 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
 
-namespace AaronSadlerBlog.Core.UmbracoForms.Models
+namespace UmbracoForms.HCaptcha.UmbracoForms.Models
 {
     /// <summary>
     /// Response Model to get the verification result
