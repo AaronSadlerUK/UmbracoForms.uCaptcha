@@ -1,0 +1,27 @@
+@using UmbracoForms.HCaptcha
+@model Umbraco.Forms.Mvc.Models.FieldViewModel
+@{
+    var siteKey = AppSettingsManager.GethCaptchaSiteKey();
+    var theme = "light";
+    var themeSetting = Model.AdditionalSettings.FirstOrDefault(x => x.Key == "Theme");
+    if (themeSetting.Value != "")
+    {
+        theme = themeSetting.Value;
+    }
+    var size = "normal";
+    var sizeSetting = Model.AdditionalSettings.FirstOrDefault(x => x.Key == "Size");
+    if (sizeSetting.Value != "")
+    {
+        size = sizeSetting.Value;
+    }
+
+    if (!string.IsNullOrEmpty(siteKey))
+    {
+        <script src="https://hcaptcha.com/1/api.js" async defer></script>
+        <div class="h-captcha" data-sitekey="@siteKey" data-theme="@theme" data-size="@size"></div>
+    }
+    else
+    {
+        <p class="error">ERROR: hCaptcha is missing the Site Key - Please update the web.config to include 'key="hCaptchaSiteKey"'</p>
+    }
+}
