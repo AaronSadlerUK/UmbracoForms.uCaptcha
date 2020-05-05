@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>AaronSadler.HCaptcha</id>
+    <version>0.0.2</version>
+    <title>UmbracoForms.HCaptcha</title>
+    <authors>Aaron Sadler</authors>
+    <owners>Aaron Sadler</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/AaronSadlerUK/UmbracoForms.hCaptcha</projectUrl>
+    <icon>hCaptchaLogo.jpg</icon>
+    <description>hCaptcha Field Type for Umbraco Forms</description>
+    <releaseNotes><![CDATA[0.0.2 Initial release]]></releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>umbraco, umbraco-cms, hCaptcha, umbraco-forms</tags>
+	<dependencies>
+	  <group targetFramework=".NETFramework4.7.2">
+		  <dependency id="UmbracoForms" version="8.4.1" />
+		  <dependency id="UmbracoForms.Core" version="8.4.1" />
+		  <dependency id="UmbracoCms" version="8.6.1" />
+	  </group>
+    </dependencies>
+  </metadata>
+      <files>
+      <file src="..\..\UmbracoForms.hCaptcha\bin\Release\UmbracoForms.hCaptcha.dll" target="lib\net472" />
+      <file src="..\..\UmbracoForms.hCaptcha\Views\Partials\Forms\Fieldtypes\Fieldtype.hCaptcha.cshtml" target="content\Views\Partials\Forms\Fieldtypes\" />
+      <file src="..\..\UmbracoForms.hCaptcha\Views\Partials\Forms\Themes\default\Fieldtypes\Fieldtype.hCaptcha.cshtml" target="content\Views\Partials\Forms\Themes\default\Fieldtypes\" />
+      <file src="..\..\UmbracoForms.hCaptcha\App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hcaptchafield.html" target="content\App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\" />
+      <file src="..\..\UmbracoForms.hCaptcha\App_Plugins\UmbracoForms\Images\hCaptcha.png" target="content\App_Plugins\UmbracoForms\Images\hCaptcha.png"/>
+      <file src="..\hCaptchaLogo.jpg"/>
+    </files>
+</package>
