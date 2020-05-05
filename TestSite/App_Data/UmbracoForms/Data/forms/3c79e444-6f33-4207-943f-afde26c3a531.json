@@ -59,8 +59,9 @@
                     "rules": []
                   },
                   "settings": {
-                    "Theme": "dark",
-                    "Size": "compact"
+                    "Theme": "light",
+                    "Size": "normal",
+                    "ErrorMessage": ""
                   },
                   "preValues": []
                 }
