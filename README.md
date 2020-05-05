@@ -8,7 +8,7 @@ This package is supported on Umbraco 8.6+ and Umbraco Forms 8.4.1+.
 
 ### Installation
 
-UmbracoForms.hCaptcha is available from Our Umbraco, or as a manual download directly from GitHub.
+UmbracoForms.hCaptcha is available from [Our Umbraco](https://our.umbraco.com/packages/website-utilities/umbracoformshcaptcha/), [NuGet](https://www.nuget.org/packages/AaronSadler.HCaptcha/) or as a manual download directly from GitHub.
 
 #### Our Umbraco repository
 You can find a downloadable package, along with a discussion forum for this package, on the [Our Umbraco](https://our.umbraco.com/packages/website-utilities/umbracoformshcaptcha/) site.
