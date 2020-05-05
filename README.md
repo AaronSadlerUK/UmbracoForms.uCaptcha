@@ -15,16 +15,15 @@ You can find a downloadable package, along with a discussion forum for this pack
 
 ## Usage
 
-# Pre-Release
+**Pre-Release**
 
 This package adds hCaptcha to Umbraco Forms.
 
-This is tested with Umbraco V8.6.1 and Umbraco Forms 8.4.1
+This is tested with **Umbraco V8.6.1** and **Umbraco Forms 8.4.1**
 
 You will need to add the following keys to your Web.Config:
 
     <add key="hCaptchaSiteKey" value="YOUR SITE KEY" />
-
     <add key="hCaptchaSecretKey" value="YOUR SECRET KEY" />
 
 ### Contribution guidelines
