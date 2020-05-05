@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AaronSadler.HCaptcha</id>
-    <version>0.0.2</version>
+    <version>0.0.2-beta</version>
     <title>UmbracoForms.HCaptcha</title>
     <authors>Aaron Sadler</authors>
     <owners>Aaron Sadler</owners>
@@ -10,8 +10,9 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/AaronSadlerUK/UmbracoForms.hCaptcha</projectUrl>
     <icon>hCaptchaLogo.jpg</icon>
+    <summary>hCaptcha Field Type for Umbraco Forms</summary>
     <description>hCaptcha Field Type for Umbraco Forms</description>
-    <releaseNotes><![CDATA[0.0.2 Initial release]]></releaseNotes>
+    <releaseNotes><![CDATA[0.0.2-beta Initial release]]></releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>umbraco, umbraco-cms, hCaptcha, umbraco-forms</tags>
 	<dependencies>
