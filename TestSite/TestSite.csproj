@@ -349,6 +349,7 @@
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\datepicker.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\dropdownlist.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\fileupload.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hcaptchafield.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hiddenfield.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\password.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\radiobuttonlist.html" />
@@ -422,6 +423,7 @@
     <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-render-type.html" />
     <Content Include="App_Plugins\UmbracoForms\Fonts\icomoon.svg" />
     <Content Include="App_Plugins\UmbracoForms\Images\close.png" />
+    <Content Include="App_Plugins\UmbracoForms\Images\hCaptcha.png" />
     <Content Include="App_Plugins\UmbracoForms\Images\recaptcha.png" />
     <Content Include="App_Plugins\UmbracoForms\Images\recaptcha2.png" />
     <Content Include="App_Plugins\UmbracoForms\Images\succes-green.png" />
@@ -555,12 +557,19 @@
     <Content Include="Views\MacroPartials\LatestBlogposts.cshtml" />
     <Content Include="Views\MacroPartials\RenderUmbracoFormScripts.cshtml" />
     <Content Include="Views\MacroPartials\InsertUmbracoFormWithTheme.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.hCaptcha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmbracoForms.hCaptcha\UmbracoForms.hCaptcha.csproj">
+      <Project>{eb1d32f5-d3d0-440e-b71e-ee08566f7d30}</Project>
+      <Name>UmbracoForms.hCaptcha</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
