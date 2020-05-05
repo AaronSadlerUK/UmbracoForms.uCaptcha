@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -31,7 +31,7 @@ public sealed class hCaptchaField : FieldType
     [Setting("Size", Description = "hCaptcha size", PreValues = "normal,compact", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
     public string Size { get; set; }
 
-    [Setting("ErrorMessage", Description = "The error message to display when the user does not pass the hCaptcha check", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+    [Setting("ErrorMessage", Description = "The error message to display when the user does not pass the hCaptcha check, the default message is: \"You must check the \"I am human\" checkbox to continue\"", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
     public string ErrorMessage { get; set; }
 
     public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContextBase context, IFormStorage formStorage)
