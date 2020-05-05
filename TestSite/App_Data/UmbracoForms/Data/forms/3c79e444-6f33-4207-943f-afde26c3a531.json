@@ -58,7 +58,10 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "Theme": "dark",
+                    "Size": "compact"
+                  },
                   "preValues": []
                 }
               ]
