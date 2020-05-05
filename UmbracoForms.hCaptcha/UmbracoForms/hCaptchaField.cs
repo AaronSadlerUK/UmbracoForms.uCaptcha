@@ -25,13 +25,13 @@ public sealed class hCaptchaField : FieldType
         SupportsRegex = false;
     }
 
-    [Setting("Theme", Description = "hCaptcha theme", PreValues = "dark,light", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/hcaptchatheme.html")]
+    [Setting("Theme", Description = "hCaptcha theme", PreValues = "dark,light", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
     public string Theme { get; set; }
 
-    [Setting("Size", Description = "hCaptcha size", PreValues = "normal,compact", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/hcaptchasize.html")]
+    [Setting("Size", Description = "hCaptcha size", PreValues = "normal,compact", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
     public string Size { get; set; }
 
-    [Setting("ErrorMessage", Description = "The error message to display when the user does not pass the hCaptcha check", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/hcaptchaerrormessage.html")]
+    [Setting("ErrorMessage", Description = "The error message to display when the user does not pass the hCaptcha check", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
     public string ErrorMessage { get; set; }
 
     public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContextBase context, IFormStorage formStorage)

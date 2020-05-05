@@ -183,9 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hcaptchafield.html" />
-    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\hcaptchaerrormessage.html" />
-    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\hcaptchasize.html" />
-    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\SettingTypes\hcaptchatheme.html" />
     <Content Include="App_Plugins\UmbracoForms\Images\hCaptcha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
