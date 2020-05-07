@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
@@ -33,6 +34,15 @@ public sealed class hCaptchaField : FieldType
 
     [Setting("ErrorMessage", Description = "The error message to display when the user does not pass the hCaptcha check, the default message is: \"You must check the \"I am human\" checkbox to continue\"", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
     public string ErrorMessage { get; set; }
+
+    public override IEnumerable<string> RequiredJavascriptFiles(Field field)
+    {
+        var javascriptFiles = base.RequiredJavascriptFiles(field).ToList();
+        javascriptFiles.Add("https://hcaptcha.com/1/api.js");
+        javascriptFiles.Add("~/App_Plugins/UmbracoForms/Assets/UmbracoForms.hCaptcha/umbracoforms.hcaptcha.js");
+
+        return javascriptFiles;
+    }
 
     public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContextBase context, IFormStorage formStorage)
     {

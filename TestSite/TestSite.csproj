@@ -342,6 +342,7 @@
     <Content Include="App_Plugins\UmbracoForms\Assets\themes\default\umbracoforms.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-conditions.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-dependencies.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.hcaptcha.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms.js" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkbox.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkboxlist.html" />
@@ -586,6 +587,7 @@
       <Name>UmbracoForms.hCaptcha</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
