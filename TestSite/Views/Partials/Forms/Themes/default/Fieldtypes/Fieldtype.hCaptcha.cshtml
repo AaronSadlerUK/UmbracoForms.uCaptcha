@@ -17,7 +17,8 @@
 
     if (!string.IsNullOrEmpty(siteKey))
     {
-        <div class="h-captcha" data-sitekey="@siteKey" data-theme="@theme" data-size="@size"></div>
+        <div id="hCaptcha" class="h-captcha" data-sitekey="@siteKey" data-theme="@theme" data-size="@size" data-callback="onSubmit"></div>
+        <input type="hidden" name="@Model.Name" value="false" class="h-captcha-bool"/>
     }
     else
     {

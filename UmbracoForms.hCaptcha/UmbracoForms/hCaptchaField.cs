@@ -24,12 +24,13 @@ public sealed class hCaptchaField : FieldType
         DataType = FieldDataType.Bit;
         SortOrder = 10;
         SupportsRegex = false;
+        HideLabel = true;
     }
 
     [Setting("Theme", Description = "hCaptcha theme", PreValues = "dark,light", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
     public string Theme { get; set; }
 
-    [Setting("Size", Description = "hCaptcha size", PreValues = "normal,compact", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
+    [Setting("Size", Description = "hCaptcha size", PreValues = "normal,compact,invisible", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
     public string Size { get; set; }
 
     [Setting("ErrorMessage", Description = "The error message to display when the user does not pass the hCaptcha check, the default message is: \"You must check the \"I am human\" checkbox to continue\"", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
@@ -39,7 +40,14 @@ public sealed class hCaptchaField : FieldType
     {
         var javascriptFiles = base.RequiredJavascriptFiles(field).ToList();
         javascriptFiles.Add("https://hcaptcha.com/1/api.js");
-        javascriptFiles.Add("~/App_Plugins/UmbracoForms/Assets/UmbracoForms.hCaptcha/umbracoforms.hcaptcha.js");
+        if (field.Settings.ContainsKey("Size") && field.Settings["Size"] == "invisible")
+        {
+            javascriptFiles.Add( "~/App_Plugins/UmbracoForms/Assets/UmbracoForms.hCaptcha/umbracoforms.invisible.hcaptcha.js");
+        }
+        else
+        {
+            javascriptFiles.Add("~/App_Plugins/UmbracoForms/Assets/UmbracoForms.hCaptcha/umbracoforms.hcaptcha.js");
+        }
 
         return javascriptFiles;
     }

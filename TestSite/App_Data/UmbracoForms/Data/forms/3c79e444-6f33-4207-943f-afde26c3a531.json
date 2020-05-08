@@ -25,11 +25,17 @@
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
-                  "mandatory": false,
+                  "mandatory": true,
                   "regex": null,
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
-                  "condition": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
                   "settings": {
                     "DefaultValue": "",
                     "Placeholder": ""
@@ -84,7 +90,7 @@
   "hideFieldValidation": false,
   "requiredErrorMessage": "Please provide a value for {0}",
   "invalidErrorMessage": "Please provide a valid value for {0}",
-  "messageOnSubmit": "Thank you",
+  "messageOnSubmit": "0",
   "goToPageOnSubmit": 0,
   "xPathOnSubmit": null,
   "manualApproval": false,

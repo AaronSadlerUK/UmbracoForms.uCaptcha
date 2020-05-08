@@ -15,7 +15,7 @@
     <RootNamespace>TestSite</RootNamespace>
     <AssemblyName>TestSite</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -343,6 +343,7 @@
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-conditions.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-dependencies.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.invisible.hcaptcha.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms.js" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkbox.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkboxlist.html" />
@@ -603,7 +604,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53955</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53955/</IISUrl>
+          <IISUrl>http://hcaptchatest.com</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
