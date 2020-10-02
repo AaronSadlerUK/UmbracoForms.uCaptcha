@@ -177,9 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
     <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.hCaptcha.cshtml" />
     <Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\Fieldtype.hCaptcha.cshtml" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.hcaptcha.js" />
