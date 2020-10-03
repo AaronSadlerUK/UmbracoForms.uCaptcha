@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <info>
+    <package>
+      <name>UmbracoForms.uCaptcha</name>
+      <version>1.0.0</version>
+      <iconUrl></iconUrl>
+      <licence url="https://opensource.org/licenses/MIT">MIT</licence>
+      <url>https://github.com/AaronSadlerUK/UmbracoForms.uCaptcha</url>
+      <requirements type="strict">
+        <major>8</major>
+        <minor>6</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Aaron Sadler</name>
+      <website>https://aaronsadler.dev</website>
+    </author>
+    <readme><![CDATA[A simple to use and integrate captcha plugin for Umbraco Forms which supports both hCaptcha and reCaptcha.]]></readme>
+  </info>
+  <files>
+    <folder path="../UmbracoForms.hCaptcha/App_Plugins/UmbracoForms.uCaptcha" orgPath="App_Plugins/UmbracoForms.uCaptcha" /> 
+    <file path="../UmbracoForms.hCaptcha/bin/Release/UmbracoForms.uCaptcha.dll" orgPath="bin/UmbracoForms.uCaptcha.dll" />
+    <file path="../UmbracoForms.hCaptcha/Views/Partials/Forms/Themes/default/Fieldtypes/Fieldtype.uCaptcha.cshtml" orgPath="Views/Partials/Forms/Themes/default/Fieldtypes/Fieldtype.uCaptcha.cshtml" />
+    <file path="../UmbracoForms.hCaptcha/Views/Partials/Forms/Fieldtypes/Fieldtype.uCaptcha.cshtml" orgPath="Views/Partials/Forms/Fieldtypes/Fieldtype.uCaptcha.cshtml" />
+	</files>
+  <Actions />
+  <control />
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>
