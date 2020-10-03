@@ -1,0 +1,53 @@
+@using UmbracoForms.uCaptcha
+@using UmbracoForms.uCaptcha.Enums
+@model Umbraco.Forms.Mvc.Models.FieldViewModel
+@{
+    var siteKey = AppSettingsManager.GetuCaptchaSiteKey();
+    var providerName = AppSettingsManager.GetuCaptchaProvider();
+    var providerClass = string.Empty;
+    if (providerName == Provider.Name.hCaptcha.ToString())
+    {
+        providerClass = "h-captcha";
+    }
+    else if (providerName == Provider.Name.reCaptcha.ToString())
+    {
+        providerClass = "g-recaptcha";
+    }
+    var theme = "light";
+    var themeSetting = Model.AdditionalSettings.FirstOrDefault(x => x.Key == "Theme");
+    if (themeSetting.Value != "")
+    {
+        theme = themeSetting.Value;
+    }
+    var size = "normal";
+    var sizeSetting = Model.AdditionalSettings.FirstOrDefault(x => x.Key == "Size");
+    if (sizeSetting.Value != "")
+    {
+        size = sizeSetting.Value;
+    }
+
+    var reCaptchaBadgePosition = string.Empty;
+    var reCaptchaBadgeSetting = Model.AdditionalSettings.FirstOrDefault(x => x.Key == "reCaptchaBadgePosition");
+    if (providerName == Provider.Name.reCaptcha.ToString())
+    {
+        if (reCaptchaBadgeSetting.Value != "")
+        {
+            reCaptchaBadgePosition = reCaptchaBadgeSetting.Value;
+        }
+        else
+        {
+            reCaptchaBadgePosition = "bottomright";
+        }
+
+    }
+
+    if (!string.IsNullOrEmpty(siteKey))
+    {
+        <div id="uCaptcha" class="@providerClass" data-sitekey="@siteKey" data-theme="@theme" data-size="@size" data-badge="@reCaptchaBadgePosition" data-callback="onSubmit"></div>
+        <input type="hidden" name="@Model.Name" value="false" class="u-captcha-bool"/>
+    }
+    else
+    {
+        <p class="error">ERROR: hCaptcha is missing the Site Key - Please update the web.config to include 'key="hCaptchaSiteKey"'</p>
+    }
+}

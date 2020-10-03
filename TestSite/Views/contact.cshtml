@@ -40,7 +40,7 @@
             <div class="col-md-6">
                 <h2>@Model.ContactFormHeader</h2>
                 @Model.ContactIntro
-                @Umbraco.RenderMacro("renderUmbracoForm", new { FormGuid = Model.ContactForm.ToString() })
+                @Umbraco.RenderMacro("renderUmbracoForm", new { FormGuid = Model.ContactForm.ToString(), ExcludeScripts = "0" })
             </div>
 
         </div>

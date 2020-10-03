@@ -1,6 +1,6 @@
-# UmbracoForms.hCaptcha
+# UmbracoForms.uCaptcha
 
-An alternative captcha solution
+A simple to use and integrate captcha plugin for Umbraco Forms which supports both hCaptcha and reCaptcha.
 
 ## Getting started
 
@@ -8,26 +8,38 @@ This package is supported on Umbraco 8.6+ and Umbraco Forms 8.4.1+.
 
 ### Installation
 
-UmbracoForms.hCaptcha is available from [Our Umbraco](https://our.umbraco.com/packages/website-utilities/umbracoformshcaptcha/), [NuGet](https://www.nuget.org/packages/AaronSadler.HCaptcha/) or as a manual download directly from GitHub.
-
-#### Our Umbraco repository
-You can find a downloadable package, along with a discussion forum for this package, on the [Our Umbraco](https://our.umbraco.com/packages/website-utilities/umbracoformshcaptcha/) site.
+UmbracoForms.uCaptcha is available from [Our Umbraco](https://our.umbraco.com/packages/website-utilities/umbracoformsucaptcha/), [NuGet](https://www.nuget.org/packages/AaronSadler.uCaptcha) or as a manual download directly from GitHub.
 
 ## Usage
 
-**Pre-Release**
+This package adds both hCaptcha or reCaptcha to Umbraco Forms, configurable by the AppSettings in the Web.Config.
 
-This package adds hCaptcha to Umbraco Forms.
+It has the ability to choose from the traditional checkbox or invisible options.
 
 This is tested with **Umbraco V8.6.1** and **Umbraco Forms 8.4.1**
 
 You can see a demo of it in action here:
 [https://aaronsadler.uk/contact/](https://aaronsadler.uk/contact/)
 
-You will need to add the following keys to your Web.Config:
+
+## Getting Started
+
+Before you begin you will need to get your API keys from your preferred provider, you can get these from the links below:
+
+[hCaptcha](https://hCaptcha.com/?r=0d16470cad8d)
+
+[reCaptcha](https://www.google.com/recaptcha/about/)
+
+You will need to add the following AppSettings to your `Web.Config`
 
     <add key="hCaptchaSiteKey" value="YOUR SITE KEY" />
     <add key="hCaptchaSecretKey" value="YOUR SECRET KEY" />
+
+To select the provider you will need to add the following AppSetting to your `Web.Config`
+    
+    <add key="uCaptchaProvider" value="PROVIDER" />
+
+The choices are either `hCaptcha` or `reCaptcha`
 
 ### Contribution guidelines
 
