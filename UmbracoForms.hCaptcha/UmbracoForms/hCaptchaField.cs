@@ -27,6 +27,11 @@ public sealed class hCaptchaField : FieldType
         HideLabel = true;
     }
 
+    public override string GetDesignView()
+    {
+        return "~/App_Plugins/UmbracoForms.hCaptcha/Backoffice/Common/FieldTypes/hcaptchafield.html";
+    }
+
     [Setting("Theme", Description = "hCaptcha theme", PreValues = "dark,light", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
     public string Theme { get; set; }
 
@@ -42,11 +47,11 @@ public sealed class hCaptchaField : FieldType
         javascriptFiles.Add("https://hcaptcha.com/1/api.js");
         if (field.Settings.ContainsKey("Size") && field.Settings["Size"] == "invisible")
         {
-            javascriptFiles.Add( "~/App_Plugins/UmbracoForms/Assets/UmbracoForms.hCaptcha/umbracoforms.invisible.hcaptcha.js");
+            javascriptFiles.Add("~/App_Plugins/UmbracoForms.hCaptcha/Assets/umbracoforms.invisible.hcaptcha.js");
         }
         else
         {
-            javascriptFiles.Add("~/App_Plugins/UmbracoForms/Assets/UmbracoForms.hCaptcha/umbracoforms.hcaptcha.js");
+            javascriptFiles.Add("~/App_Plugins/UmbracoForms.hCaptcha/Assets/umbracoforms.hcaptcha.js");
         }
 
         return javascriptFiles;

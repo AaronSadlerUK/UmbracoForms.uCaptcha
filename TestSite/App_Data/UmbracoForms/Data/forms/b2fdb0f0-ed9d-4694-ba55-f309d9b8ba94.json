@@ -1,13 +1,13 @@
 {
-  "name": "Test form",
-  "created": "2020-05-05T17:30:15.1235713+01:00",
+  "name": "New Test Form",
+  "created": "2020-10-03T09:15:04.2988209+01:00",
   "pages": [
     {
       "fieldSets": [
         {
           "caption": null,
           "sortOrder": 0,
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "81d2ea3b-88c7-48ea-80f1-7f9ec9223ac0",
           "page": "00000000-0000-0000-0000-000000000000",
           "containers": [
             {
@@ -15,17 +15,17 @@
               "width": 12,
               "fields": [
                 {
-                  "caption": "Name",
+                  "caption": "Text Box",
                   "tooltip": null,
                   "placeholder": null,
                   "cssClass": null,
-                  "alias": "name",
-                  "id": "f6718dda-0e45-48f9-bf8f-ecfe8a500a9e",
+                  "alias": "textBox",
+                  "id": "4dde9e08-e7e4-49cd-c1f5-9e28b8c7b0bf",
                   "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
-                  "mandatory": true,
+                  "mandatory": false,
                   "regex": null,
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
@@ -48,7 +48,7 @@
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "hCaptcha",
-                  "id": "0b775828-85f2-44ca-de74-d5b9f5a971fd",
+                  "id": "34bff5dc-52e7-4b4c-d08a-62e73eb10ebd",
                   "fieldTypeId": "76fc6a38-4517-4fea-b928-9ff20c626adb",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
@@ -65,9 +65,9 @@
                     "rules": []
                   },
                   "settings": {
-                    "Theme": "light",
-                    "Size": "normal",
-                    "ErrorMessage": ""
+                    "Theme": "dark",
+                    "Size": "invisible",
+                    "ErrorMessage": "Different Message"
                   },
                   "preValues": []
                 }
@@ -77,20 +77,20 @@
           "condition": null
         }
       ],
-      "caption": "Test form",
+      "caption": null,
       "sortOrder": 0,
       "id": "00000000-0000-0000-0000-000000000000",
       "form": "00000000-0000-0000-0000-000000000000"
     }
   ],
-  "id": "3c79e444-6f33-4207-943f-afde26c3a531",
+  "id": "b2fdb0f0-ed9d-4694-ba55-f309d9b8ba94",
   "fieldIndicationType": "MarkMandatoryFields",
   "indicator": "*",
   "showValidationSummary": false,
   "hideFieldValidation": false,
   "requiredErrorMessage": "Please provide a value for {0}",
   "invalidErrorMessage": "Please provide a valid value for {0}",
-  "messageOnSubmit": "0",
+  "messageOnSubmit": "Thank you",
   "goToPageOnSubmit": 0,
   "xPathOnSubmit": null,
   "manualApproval": false,
@@ -98,9 +98,11 @@
   "cssClass": null,
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
-  "workflows": [],
+  "workflows": [
+    "1c42a1d4-f847-4f6b-9c04-883baa234e9d"
+  ],
   "datasource": null,
   "submitLabel": "Submit",
   "nextLabel": "Next",
-  "prevLabel": "Prev"
+  "prevLabel": "Previous"
 }

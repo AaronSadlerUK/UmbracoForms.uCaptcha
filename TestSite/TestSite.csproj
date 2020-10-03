@@ -327,6 +327,10 @@
     <Content Include="App_Plugins\StarterKit\tours\views\medialibrary\uploadimages.html" />
     <Content Include="App_Plugins\StarterKit\tours\views\validatetext.controller.js" />
     <Content Include="App_Plugins\StarterKit\tours\views\validatetext.html" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.invisible.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Backoffice\Common\FieldTypes\hcaptchafield.html" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Images\hCaptcha.png" />
     <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\css\application.css" />
     <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\js\Calendar.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\datepicker.init.js" />
@@ -340,8 +344,6 @@
     <Content Include="App_Plugins\UmbracoForms\Assets\themes\default\umbracoforms.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-conditions.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms-dependencies.js" />
-    <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.hcaptcha.js" />
-    <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.invisible.hcaptcha.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\umbracoforms.js" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkbox.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\checkboxlist.html" />
@@ -349,7 +351,6 @@
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\datepicker.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\dropdownlist.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\fileupload.html" />
-    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hcaptchafield.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hiddenfield.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\password.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\radiobuttonlist.html" />
@@ -423,7 +424,6 @@
     <Content Include="App_Plugins\UmbracoForms\Directives\umb-forms-render-type.html" />
     <Content Include="App_Plugins\UmbracoForms\Fonts\icomoon.svg" />
     <Content Include="App_Plugins\UmbracoForms\Images\close.png" />
-    <Content Include="App_Plugins\UmbracoForms\Images\hCaptcha.png" />
     <Content Include="App_Plugins\UmbracoForms\Images\recaptcha.png" />
     <Content Include="App_Plugins\UmbracoForms\Images\recaptcha2.png" />
     <Content Include="App_Plugins\UmbracoForms\Images\succes-green.png" />

@@ -1,0 +1,17 @@
+{
+  "id": "1c42a1d4-f847-4f6b-9c04-883baa234e9d",
+  "name": "Send template email to aaron@aaronsadler.co.uk",
+  "form": "b2fdb0f0-ed9d-4694-ba55-f309d9b8ba94",
+  "active": true,
+  "includeSensitiveData": "False",
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "aaron@aaronsadler.co.uk",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

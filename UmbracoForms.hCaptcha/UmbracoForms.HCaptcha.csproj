@@ -182,10 +182,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.hcaptcha.js" />
-    <Content Include="App_Plugins\UmbracoForms\Assets\UmbracoForms.hCaptcha\umbracoforms.invisible.hcaptcha.js" />
-    <Content Include="App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\hcaptchafield.html" />
-    <Content Include="App_Plugins\UmbracoForms\Images\hCaptcha.png" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.invisible.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Backoffice\Common\FieldTypes\hcaptchafield.html" />
+    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Images\hCaptcha.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
