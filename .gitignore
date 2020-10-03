@@ -383,3 +383,5 @@ MigrationBackup/
 TestSite/App_Data/umbraco.licensing.log.txt
 
 TestSite/App_Data/Models/
+
+.idea/
