@@ -65,6 +65,7 @@
                     "rules": []
                   },
                   "settings": {
+                    "ShowLabel": "True",
                     "Theme": "dark",
                     "Size": "invisible",
                     "ErrorMessage": "Different Message"

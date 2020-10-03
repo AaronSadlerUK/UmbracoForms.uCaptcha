@@ -24,13 +24,15 @@ public sealed class hCaptchaField : FieldType
         DataType = FieldDataType.Bit;
         SortOrder = 10;
         SupportsRegex = false;
-        HideLabel = true;
     }
 
     public override string GetDesignView()
     {
         return "~/App_Plugins/UmbracoForms.hCaptcha/Backoffice/Common/FieldTypes/hcaptchafield.html";
     }
+
+    [Setting("Show Label", Description = "Show the property label", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/checkbox.html")]
+    public string ShowLabel { get; set; }
 
     [Setting("Theme", Description = "hCaptcha theme", PreValues = "dark,light", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/dropdownlist.html")]
     public string Theme { get; set; }
@@ -40,6 +42,8 @@ public sealed class hCaptchaField : FieldType
 
     [Setting("ErrorMessage", Description = "The error message to display when the user does not pass the hCaptcha check, the default message is: \"You must check the \"I am human\" checkbox to continue\"", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
     public string ErrorMessage { get; set; }
+
+    public override bool HideLabel => !Convert.ToBoolean(ShowLabel);
 
     public override IEnumerable<string> RequiredJavascriptFiles(Field field)
     {
