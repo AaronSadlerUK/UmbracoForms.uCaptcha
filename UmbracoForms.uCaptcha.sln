@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSite", "TestSite\TestSite.csproj", "{93A4C41D-975C-48C4-8565-806052225610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoForms.uCaptcha", "UmbracoForms.hCaptcha\UmbracoForms.uCaptcha.csproj", "{EB1D32F5-D3D0-440E-B71E-EE08566F7D30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoForms.uCaptcha", "UmbracoForms.uCaptcha\UmbracoForms.uCaptcha.csproj", "{EB1D32F5-D3D0-440E-B71E-EE08566F7D30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
