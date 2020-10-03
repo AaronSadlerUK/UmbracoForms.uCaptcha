@@ -481,7 +481,6 @@
     <Content Include="Global.asax" />
     <Content Include="Views\MacroPartials\FeaturedProducts.cshtml" />
     <Content Include="Views\MacroPartials\LatestBlogposts.cshtml" />
-    <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.hCaptcha.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -575,6 +574,7 @@
     <Content Include="Views\Partials\Forms\Emails\Example-Template.cshtml" />
     <Content Include="Views\MacroPartials\RenderUmbracoFormScripts.cshtml" />
     <Content Include="Views\MacroPartials\InsertUmbracoFormWithTheme.cshtml" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.uCaptcha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -583,12 +583,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UmbracoForms.hCaptcha\UmbracoForms.uCaptcha.csproj">
+    <ProjectReference Include="..\UmbracoForms.uCaptcha\UmbracoForms.uCaptcha.csproj">
       <Project>{eb1d32f5-d3d0-440e-b71e-ee08566f7d30}</Project>
       <Name>UmbracoForms.uCaptcha</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

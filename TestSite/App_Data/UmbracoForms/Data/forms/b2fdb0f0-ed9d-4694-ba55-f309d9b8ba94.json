@@ -43,11 +43,11 @@
                   "preValues": []
                 },
                 {
-                  "caption": "hCaptcha",
+                  "caption": "uCaptcha",
                   "tooltip": null,
                   "placeholder": null,
                   "cssClass": null,
-                  "alias": "hCaptcha",
+                  "alias": "uCaptcha",
                   "id": "34bff5dc-52e7-4b4c-d08a-62e73eb10ebd",
                   "fieldTypeId": "76fc6a38-4517-4fea-b928-9ff20c626adb",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
@@ -67,9 +67,9 @@
                   "settings": {
                     "ShowLabel": "False",
                     "Theme": "light",
-                    "Size": "invisible",
-                    "ErrorMessage": "Different Message",
-                    "reCaptchaBadgePosition": "bottomleft"
+                    "Size": "normal",
+                    "reCaptchaBadgePosition": "bottomleft",
+                    "ErrorMessage": "Different Message"
                   },
                   "preValues": []
                 }
