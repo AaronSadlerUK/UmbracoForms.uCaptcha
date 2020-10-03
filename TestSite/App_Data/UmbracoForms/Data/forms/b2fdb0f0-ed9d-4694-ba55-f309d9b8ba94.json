@@ -65,10 +65,11 @@
                     "rules": []
                   },
                   "settings": {
-                    "ShowLabel": "True",
-                    "Theme": "dark",
+                    "ShowLabel": "False",
+                    "Theme": "light",
                     "Size": "invisible",
-                    "ErrorMessage": "Different Message"
+                    "ErrorMessage": "Different Message",
+                    "reCaptchaBadgePosition": "bottomleft"
                   },
                   "preValues": []
                 }

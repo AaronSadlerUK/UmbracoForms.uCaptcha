@@ -327,10 +327,12 @@
     <Content Include="App_Plugins\StarterKit\tours\views\medialibrary\uploadimages.html" />
     <Content Include="App_Plugins\StarterKit\tours\views\validatetext.controller.js" />
     <Content Include="App_Plugins\StarterKit\tours\views\validatetext.html" />
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.hcaptcha.js" />
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.invisible.hcaptcha.js" />
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Backoffice\Common\FieldTypes\hcaptchafield.html" />
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Images\hCaptcha.png" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.recaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.invisible.recaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.invisible.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Backoffice\Common\FieldTypes\ucaptchafield.html" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Images\uCaptcha.png" />
     <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\css\application.css" />
     <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\js\Calendar.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\datepicker.init.js" />
@@ -508,7 +510,7 @@
     <Content Include="Views\Person.cshtml" />
     <Content Include="Views\Product.cshtml" />
     <Content Include="Views\Products.cshtml" />
-    <Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\Fieldtype.hCaptcha.cshtml" />
+    <Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\Fieldtype.uCaptcha.cshtml" />
     <Content Include="Media\Web.config" />
     <Content Include="config\umbracoSettings.config" />
     <Content Include="config\tinyMceConfig.config" />
@@ -581,9 +583,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UmbracoForms.hCaptcha\UmbracoForms.hCaptcha.csproj">
+    <ProjectReference Include="..\UmbracoForms.hCaptcha\UmbracoForms.uCaptcha.csproj">
       <Project>{eb1d32f5-d3d0-440e-b71e-ee08566f7d30}</Project>
-      <Name>UmbracoForms.hCaptcha</Name>
+      <Name>UmbracoForms.uCaptcha</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

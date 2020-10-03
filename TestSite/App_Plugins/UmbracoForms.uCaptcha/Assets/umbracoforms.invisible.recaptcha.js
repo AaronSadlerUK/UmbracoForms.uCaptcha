@@ -6,9 +6,9 @@ function onSubmit(token) {
     var frm = $("#" + submittedFormId);
     var form = frm.find('form').first();
     //Check we have the correct form by comparing response token
-    if (form.length > 0 && form.find(".h-captcha-response").val(token)) {
+    if (form.length > 0 && form.find(".g-captcha-response").val(token)) {
         //Set hCaptcha field to true
-        form.find(".h-captcha-bool").val("true");
+        form.find(".u-captcha-bool").val("true");
         //Submit the form
         form.submit();
     }

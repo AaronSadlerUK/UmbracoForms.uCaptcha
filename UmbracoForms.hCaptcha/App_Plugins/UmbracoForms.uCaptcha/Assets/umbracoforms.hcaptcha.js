@@ -5,7 +5,7 @@ function onSubmit(token) {
     uf.each(function () {
         if ($(this).find('.h-captcha-response').val(token)) {
             //Set hidden field to true if response matches
-            $(this).find('.h-captcha-bool').val("true");
+            $(this).find('.u-captcha-bool').val("true");
         }
     });
 }

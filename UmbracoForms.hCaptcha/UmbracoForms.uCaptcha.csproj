@@ -7,8 +7,8 @@
     <ProjectGuid>{EB1D32F5-D3D0-440E-B71E-EE08566F7D30}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UmbracoForms.hCaptcha</RootNamespace>
-    <AssemblyName>UmbracoForms.hCaptcha</AssemblyName>
+    <RootNamespace>UmbracoForms.uCaptcha</RootNamespace>
+    <AssemblyName>UmbracoForms.uCaptcha</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -171,21 +171,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettingsManager.cs" />
+    <Compile Include="Consts.cs" />
+    <Compile Include="Enums\Provider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UmbracoForms\hCaptchaField.cs" />
-    <Compile Include="UmbracoForms\Models\HCaptchaVerifyResponse.cs" />
+    <Compile Include="UmbracoForms\uCaptchaField.cs" />
+    <Compile Include="UmbracoForms\Models\uCaptchaVerifyResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.hCaptcha.cshtml" />
-    <Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\Fieldtype.hCaptcha.cshtml" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.invisible.hcaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.invisible.recaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Assets\umbracoforms.recaptcha.js" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Backoffice\Common\FieldTypes\ucaptchafield.html" />
+    <Content Include="App_Plugins\UmbracoForms.uCaptcha\Images\uCaptcha.png" />
+    <Content Include="Views\Partials\Forms\Fieldtypes\Fieldtype.uCaptcha.cshtml" />
+    <Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\Fieldtype.uCaptcha.cshtml" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.hcaptcha.js" />
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Assets\umbracoforms.invisible.hcaptcha.js" />
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Backoffice\Common\FieldTypes\hcaptchafield.html" />
-    <Content Include="App_Plugins\UmbracoForms.hCaptcha\Images\hCaptcha.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

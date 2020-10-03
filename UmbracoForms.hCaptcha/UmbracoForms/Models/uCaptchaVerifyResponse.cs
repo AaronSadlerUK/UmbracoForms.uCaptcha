@@ -1,13 +1,13 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace UmbracoForms.HCaptcha.UmbracoForms.Models
+namespace UmbracoForms.uCaptcha.UmbracoForms.Models
 {
     /// <summary>
     /// Response Model to get the verification result
     /// </summary>
     /// <remarks>https://docs.hcaptcha.com/#server</remarks>
-    public class HCaptchaVerifyResponse
+    public class uCaptchaVerifyResponse
     {
         /// <summary>
         /// indicates if verify was successfully or not

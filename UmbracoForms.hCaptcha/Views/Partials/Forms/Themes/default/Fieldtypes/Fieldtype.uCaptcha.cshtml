@@ -1,7 +1,7 @@
-@using UmbracoForms.HCaptcha
+@using UmbracoForms.uCaptcha
 @model Umbraco.Forms.Mvc.Models.FieldViewModel
 @{
-    var siteKey = AppSettingsManager.GethCaptchaSiteKey();
+    var siteKey = AppSettingsManager.GetuCaptchaSiteKey();
     var theme = "light";
     var themeSetting = Model.AdditionalSettings.FirstOrDefault(x => x.Key == "Theme");
     if (themeSetting.Value != "")
