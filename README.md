@@ -32,8 +32,8 @@ Before you begin you will need to get your API keys from your preferred provider
 
 You will need to add the following AppSettings to your `Web.Config`
 
-    <add key="hCaptchaSiteKey" value="YOUR SITE KEY" />
-    <add key="hCaptchaSecretKey" value="YOUR SECRET KEY" />
+    <add key="uCaptchaSiteKey" value="YOUR SITE KEY" />
+    <add key="uCaptchaSecretKey" value="YOUR SECRET KEY" />
 
 To select the provider you will need to add the following AppSetting to your `Web.Config`
     
