@@ -9,7 +9,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/AaronSadlerUK/UmbracoForms.uCaptcha</projectUrl>
-    <icon>uCaptchaLogo.jpg</icon>
+    <icon>uCaptcha-logo.png</icon>
     <summary>A simple to use and integrate captcha plugin for Umbraco Forms which supports both hCaptcha and reCaptcha</summary>
     <description>A simple to use and integrate captcha plugin for Umbraco Forms which supports both hCaptcha and reCaptcha</description>
     <releaseNotes><![CDATA[1.0.0 Initial release]]></releaseNotes>
