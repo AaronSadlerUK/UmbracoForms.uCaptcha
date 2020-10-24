@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AaronSadler.uCaptcha</id>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <title>UmbracoForms.uCaptcha</title>
     <authors>Aaron Sadler</authors>
     <owners>Aaron Sadler</owners>
@@ -12,7 +12,7 @@
     <icon>uCaptcha-logo.png</icon>
     <summary>A simple to use and integrate captcha plugin for Umbraco Forms which supports both hCaptcha and reCaptcha</summary>
     <description>A simple to use and integrate captcha plugin for Umbraco Forms which supports both hCaptcha and reCaptcha</description>
-    <releaseNotes><![CDATA[1.0.0 Initial release]]></releaseNotes>
+    <releaseNotes><![CDATA[1.0.1 Fixed string conversion to bool exception]]></releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>umbraco, umbraco-cms, hCaptcha, umbraco-forms, reCaptcha</tags>
 	<dependencies>

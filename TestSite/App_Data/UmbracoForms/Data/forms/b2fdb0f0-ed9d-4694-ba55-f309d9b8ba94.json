@@ -43,17 +43,17 @@
                   "preValues": []
                 },
                 {
-                  "caption": "uCaptcha",
+                  "caption": "Captcha",
                   "tooltip": null,
                   "placeholder": null,
                   "cssClass": null,
-                  "alias": "uCaptcha",
-                  "id": "34bff5dc-52e7-4b4c-d08a-62e73eb10ebd",
+                  "alias": "captcha",
+                  "id": "828d21f4-d48c-4471-ed4d-61b7ae0eb4ff",
                   "fieldTypeId": "76fc6a38-4517-4fea-b928-9ff20c626adb",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
-                  "mandatory": false,
+                  "mandatory": true,
                   "regex": null,
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
@@ -65,11 +65,7 @@
                     "rules": []
                   },
                   "settings": {
-                    "ShowLabel": "False",
-                    "Theme": "light",
-                    "Size": "normal",
-                    "reCaptchaBadgePosition": "bottomleft",
-                    "ErrorMessage": "Different Message"
+                    "Size": "invisible"
                   },
                   "preValues": []
                 }
