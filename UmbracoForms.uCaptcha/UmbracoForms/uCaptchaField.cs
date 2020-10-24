@@ -11,6 +11,7 @@ using Umbraco.Forms.Core.Data.Storage;
 using Umbraco.Forms.Core.Enums;
 using Umbraco.Forms.Core.Models;
 using UmbracoForms.uCaptcha.Enums;
+using UmbracoForms.uCaptcha.Helpers;
 using UmbracoForms.uCaptcha.UmbracoForms.Models;
 
 namespace UmbracoForms.uCaptcha.UmbracoForms
@@ -49,7 +50,7 @@ namespace UmbracoForms.uCaptcha.UmbracoForms
         [Setting("Error Message", Description = "The error message to display when the user does not pass the uCaptcha check, the default message is: \"You must check the \"I am human\" checkbox to continue\"", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string ErrorMessage { get; set; }
 
-        public override bool HideLabel => !Convert.ToBoolean(ShowLabel);
+        public override bool HideLabel => !Parse.Bool(ShowLabel);
 
         public override IEnumerable<string> RequiredJavascriptFiles(Field field)
         {
