@@ -4,7 +4,7 @@ A simple to use and integrate captcha plugin for Umbraco Forms which supports bo
 
 ## Getting started
 
-This package is supported on Umbraco 8.6+ and Umbraco Forms 8.4.1+.
+This package is supported on Umbraco 8.6+ and Umbraco Forms 8.7.0+.
 
 ### Installation
 
@@ -16,7 +16,7 @@ This package adds both hCaptcha or reCaptcha to Umbraco Forms, configurable by t
 
 It has the ability to choose from the traditional checkbox or invisible options.
 
-This is tested with **Umbraco V8.6.1** and **Umbraco Forms 8.4.1**
+This is tested with **Umbraco V8.6.1** and **Umbraco Forms 8.7.0**
 
 You can see a demo of it in action here:
 [https://aaronsadler.uk/contact/](https://aaronsadler.uk/contact/)
@@ -47,6 +47,6 @@ To raise a new bug, create an issue on the GitHub repository. To fix a bug or ad
 
 ## License
 
-Copyright &copy; 2020 [Aaron Sadler](https://aaronsadler.uk/).
+Copyright &copy; 2021 [Aaron Sadler](https://aaronsadler.uk/).
 
 Licensed under the MIT License.

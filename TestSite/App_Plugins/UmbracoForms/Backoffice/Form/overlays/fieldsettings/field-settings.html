@@ -1,4 +1,4 @@
-<div class="content-type-editor-dialog edit-property-settings" ng-controller="UmbracoForms.Overlays.FieldSettingsOverlay as vm">
+<div class="content-type-editor-dialog edit-property-settings" ng-controller="UmbracoForms.Overlays.FieldSettingsOverlay as vm" data-umb="field-setting-editor">
 
     <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
 
@@ -29,7 +29,7 @@
                                       focus-on-filled="true"
                                       umb-auto-resize
                                       required 
-                                      ng-keypress="vm.submitOnEnter($event)">
+                                      ng-keypress="vm.submitOnEnter($event)" data-umb="field-settings-enter-question">
                             </textarea>
                             <div ng-messages="fieldsSettingsForm.propertyLabel.$error" show-validation-on-submit>
                                 <span class="umb-validation-label" ng-message="required">Required label</span>
@@ -39,7 +39,7 @@
                         <div class="umb-control-group control-group">
                             <umb-generate-alias enable-lock="true"
                                                 alias-from="model.field.caption"
-                                                alias="model.field.alias">
+                                                alias="model.field.alias"  data-umb="field-settings-enter-alias">
                             </umb-generate-alias>
                         </div>
 
@@ -55,7 +55,7 @@
 
                         <!-- Field type -->
                         <div class="editor-wrapper umb-control-group control-group" ng-model="model.field.fieldTypeId" val-require-component>
-                            <a href="" ng-if="!model.field.fieldTypeId" class="editor-placeholder forms-question-type" ng-click="vm.openFieldTypePicker(model.field)">Choose answer type</a>
+                            <a href="" ng-if="!model.field.fieldTypeId" class="editor-placeholder forms-question-type" ng-click="vm.openFieldTypePicker(model.field)"  data-umb="field-settings-choose-answer-type">Choose answer type</a>
 
                             <div class="editor clearfix" ng-if="model.field.fieldTypeId">
                                 <a href="" class="editor-icon-wrapper" ng-click="vm.openFieldTypePicker(model.field)">
@@ -84,10 +84,30 @@
                                     label-position="right">
                             </umb-toggle>
                         </div>
-
+                        <!-- Field File upload types -->
+                        <div class="umb-control-group" ng-if="model.field.$fieldType.supportsUploadTypes">
+                            <h5>Allowed file upload types</h5>
+                            <div class="umb-property">                                
+                                <umb-forms-file-upload-editor ng-model="model.field.allowedUploadTypes" />
+                            </div>
+                            <h5>Allow multiple file uploads</h5>
+                            <div class="umb-property">
+                                <umb-toggle checked="model.field.allowMultipleFileUploads"
+                                            on-click="vm.toggleAllowMultipleFileUploads()"
+                                            show-labels="true"
+                                            label-on="Multiple files allowed"
+                                            label-off="Single file only"
+                                            label-position="right">
+                                </umb-toggle>
+                            </div>
+                        </div>
                         <!-- Field type settings -->
                         <div class="umb-control-group" ng-if="model.field.$fieldType.supportsPrevalues">
                             <h5>Prevalues</h5>
+                            <p>
+                                <small ng-if="model.prevalueSources && model.prevalueSources.length > 0">Either provide here a list of options (prevalues) specific for this field, or select a predefined prevalue source.</small>
+                                <small ng-if="!model.prevalueSources || model.prevalueSources.length == 0">Provides a list of options (prevalues) for the field.</small>
+                            </p>
                             <div class="umb-property">
 
                                 <div class="control-group umb-control-group" ng-if="model.field.prevalueSourceId == null || model.field.prevalueSourceId == '00000000-0000-0000-0000-000000000000'">
@@ -95,12 +115,14 @@
                                     <umb-forms-prevalue-editor ng-model="model.field.preValues" />
                                 </div>
 
-                                <div class="control-group umb-control-group" ng-if="model.prevalueSources">
+                                <div class="control-group umb-control-group" ng-if="model.prevalueSources && model.prevalueSources.length > 0">
                                     <label class="control-label">Prevalue source</label>
-                                    <select ng-model="model.field.prevalueSourceId" ng-change="vm.getPrevalues(model.field)">
-                                        <option value="00000000-0000-0000-0000-000000000000" ng-selected="model.field.prevalueSourceId == '00000000-0000-0000-0000-000000000000'">Choose...</option>
-                                        <option ng-repeat="source in model.prevalueSources" value="{{source.id}}" ng-selected="model.field.prevalueSourceId == source.id">{{source.name}}</option>
-                                    </select>
+                                    <div>
+                                        <select ng-model="model.field.prevalueSourceId" ng-change="vm.getPrevalues(model.field)">
+                                          <option value="00000000-0000-0000-0000-000000000000" ng-selected="model.field.prevalueSourceId == '00000000-0000-0000-0000-000000000000'">Choose...</option>
+                                          <option ng-repeat="source in model.prevalueSources" value="{{source.id}}" ng-selected="model.field.prevalueSourceId == source.id">{{source.name}}</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                             </div>
@@ -112,7 +134,7 @@
                                 <div class="control-row" ng-repeat="setting in model.field.$fieldType.settings">
                                     <div class="control-group umb-control-group -no-border">
                                         <label class="control-label">{{setting.name}}</label>
-                                        <small style="margin-top: -10px; display: block;" ng-if="setting.description">{{setting.description}}</small>
+                                        <small style="display: block;" ng-if="setting.description">{{setting.description}}</small>
                                         <div ng-include="setting.view"></div>
                                     </div>
                                 </div>
@@ -225,6 +247,7 @@
 
                                     </div>
 
+                                    <br/>
                                     <button class="umb-forms-button" ng-click="vm.addConditionRule(model.field.condition)">
                                         Add condition
                                     </button>
@@ -241,12 +264,13 @@
                     <umb-button type="button"
                                 button-style="link"
                                 label-key="general_close"
-                                action="vm.close()">
+                                shortcut="esc"
+                                action="vm.close()" data-umb="field-settings-close">
                     </umb-button>
                     <umb-button type="button"
                                 button-style="success"
                                 label-key="general_submit"
-                                action="vm.submit()">
+                                action="vm.submit()" data-umb="field-settings-submit">
                     </umb-button>
                 </umb-editor-footer-content-right>
             </umb-editor-footer>

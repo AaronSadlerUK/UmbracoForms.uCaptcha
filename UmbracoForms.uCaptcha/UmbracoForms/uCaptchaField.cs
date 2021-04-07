@@ -16,6 +16,7 @@ using UmbracoForms.uCaptcha.UmbracoForms.Models;
 
 namespace UmbracoForms.uCaptcha.UmbracoForms
 {
+    [Serializable]
     public sealed class uCaptchaField : FieldType
     {
         private static string ProviderName => AppSettingsManager.GetuCaptchaProvider();
@@ -23,7 +24,7 @@ namespace UmbracoForms.uCaptcha.UmbracoForms
         {
             Id = new Guid("76fc6a38-4517-4fea-b928-9ff20c626adb");
             Name = "uCaptcha";
-            Description = string.Empty;
+            Description = "hCaptcha or Google reCaptcha bot protection";
             Icon = "icon-eye";
             DataType = FieldDataType.Bit;
             SortOrder = 10;

@@ -29,14 +29,16 @@
         var datePickerFields = document.getElementsByClassName('datepickerfield');
         for (var i = 0; i < datePickerFields.length; i++) {
             var field = datePickerFields[i];
-            var currentId = field.id;
             new Pikaday({
-                field: document.getElementById(currentId),
+                field: field,
                 yearRange: e.umbracoFormsLocale.datePickerYearRange,
                 i18n: e.umbracoFormsLocale.locales,
                 format: "LL",
                 onSelect: function (date) {
                     setShadow(this, date);
+                    var evt = document.createEvent("HTMLEvents");
+                    evt.initEvent("input", false, true);
+                    this._o.field.dispatchEvent(evt);
                 },
                 minDate: new Date('1753-01-01T00:00:00'), //Min value of datetime in SQL Server CE
                 defaultDate: new Date(field.value),
