@@ -1,4 +1,19 @@
-﻿(function () {
+(function () {
+
+
+    // polyfill for matches and closest
+    if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector;
+    if (!Element.prototype.closest) Element.prototype.closest = function (selector) {
+        var el = this;
+        while (el) {
+            if (el.matches(selector)) {
+                return el;
+            }
+            el = el.parentElement;
+        }
+    };
+
+
 
     //execute init() on document ready
     if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
@@ -22,7 +37,7 @@
         configureUmbracoFormsValidation();
 
         for (var i = 0; i < formsCollection.length; i++) {
-            init({ form: JSON.parse(decodeURI(formsCollection[i])) });
+            init({ form: formsCollection[i] });
         }
     }
 
@@ -30,23 +45,93 @@
 
         var formItem = e.form;
 
-        var forms = $('.umbraco-forms-form');
+        var forms = document.querySelectorAll('.umbraco-forms-form');
 
-        forms.each(function (i, form) {
+        for( var i = 0; i < forms.length; i++) {
+            var form = forms[i];
+
             dependencyCheck(form);
 
-            var page = $(this).find('.umbraco-forms-page');
+            var page = form.querySelector('.umbraco-forms-page');
             var conditions = new UmbracoFormsConditions(page,
                 formItem.fieldSetConditions,
                 formItem.fieldConditions,
                 formItem.recordValues);
             conditions.watch();
-        });
+        };
     }
 
     /** Configures the jquery validation for Umbraco forms */
     function configureUmbracoFormsValidation() {
-        if ($.validator !== undefined) {
+
+        if (window.aspnetValidation !== undefined) {
+            // Asp-net validation setup:
+
+            var validationService = new aspnetValidation.ValidationService();
+
+            // TODO: equivilant to this:
+            /*
+            $.validator.setDefaults({
+                ignore: ":hidden"
+            });
+            */
+           
+            function required(value, element, params) {
+                // Handle single and multiple checkboxes:
+                if(element.type.toLowerCase() === "checkbox" || element.type.toLowerCase() === "radio") {
+                    var allCheckboxesOfThisName = element.form.querySelectorAll("input[name='"+element.name+"']");
+                    for (var i=0; i<allCheckboxesOfThisName.length; i++) {
+                        if (allCheckboxesOfThisName[i].checked === true) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return Boolean(value);
+            }
+            validationService.addProvider("requiredcb", required);
+            validationService.addProvider("required", required);// this will go instead of the build-in required.
+
+
+            function umbracoforms_regex(value, element, params) {
+                if (!value || !params.pattern) {
+                    return true;
+                }
+        
+                let r = new RegExp(params.pattern);
+                return r.test(value);
+            }
+            validationService.addProvider("umbracoforms_regex", umbracoforms_regex);
+
+            function wrapProviderWithIgnorerBehaviour(provider) {
+                return async function(value, element, params) {
+                    
+                    // If field is hidden we ignorer the validation.
+                    if(element.offsetParent === null) {
+                        return true;
+                    }
+                    return provider(value, element, params);
+                }
+            }
+
+            // we can only incept with default validator if we do it after bootstrapping but before window load event triggers validationservice.
+            window.addEventListener('load', event => {
+
+                // Wrap all providers with ignorer hidden fields logic:
+                for (var key in validationService.providers) {
+                    validationService.providers[key] = wrapProviderWithIgnorerBehaviour(validationService.providers[key]);
+                }
+            });
+
+            // bootstrap validation service.
+            validationService.bootstrap();
+            
+            
+            
+             
+
+        } else if (typeof jQuery === "function" && $.validator) {
+            //Jquery validation setup
 
             $.validator.setDefaults({
                 ignore: ":hidden"
@@ -67,18 +152,22 @@
 
             $.validator.unobtrusive.adapters.addBool("regex", "umbracoforms_regex");
 
-            $(".umbraco-forms-form input[type=submit]").not(".cancel").click(function (evt) {
-                evt.preventDefault();
-                var self = $(this);
-                var frm = self.closest("form");
-                frm.validate();
-                if (frm.valid()) {
-                    frm.submit();
-                    self.attr("disabled", "disabled");
-
-                }
-            });
+            var submitInputs = document.querySelectorAll(".umbraco-forms-form input[type=submit]:not(.cancel)");
+            for (var i = 0; i < submitInputs.length; i++) {
+                var input = submitInputs[i];
+                input.addEventListener("click", function (evt) {
+                    evt.preventDefault();
+                    var frm = $(this).closest("form");
+                    frm.validate();
+                    if (frm.valid()) {
+                        frm.submit();
+                        this.setAttribute("disabled", "disabled");
+    
+                    }
+                }.bind(input));
+            }
         }
+
     }
 
     /**
@@ -111,23 +200,18 @@
                     return;
                 }
 
-                //Check for jQuery
-                if (typeof jQuery === "undefined") {
-                    errorMessage = errorMessage + "jQuery has not been loaded & is required for Umbraco Forms.";
-                } else {
-                    //These only work if jQuery is present, so it's in the else block
+                var hasValidationFramework = false;
 
-                    //Check for jQuery Validation
-                    if (!$.validator) {
-                        errorMessage = errorMessage + "<br />jQuery Validate has not been loaded & is required for Umbraco Forms."
-                    }
-
-                    //Check for jQuery Validation Unobtrusive
-                    //Only works if jQuery validator has been loaded
-                    if ($.validator && !$.validator.unobtrusive) {
-                        errorMessage = errorMessage + "<br />jQuery Validate Unobtrusive has not been loaded & is required for Umbraco Forms.";
-                    }
+                if (window.jQuery && $ && $.validator !== undefined) {
+                    hasValidationFramework = true;
+                } else if (window.aspnetValidation !== undefined) {
+                    hasValidationFramework = true;
                 }
+
+                if(hasValidationFramework === false) {
+                    errorMessage = errorMessage + "Umbraco Forms requires a validation framework to run, please read documentation for posible options.";
+                }
+
                 if (errorMessage !== "") {
                     errorElement.innerHTML = errorMessage + '<br/> <a href="https://our.umbraco.org/documentation/products/umbracoforms/developer/Prepping-Frontend/" target="_blank" style="text-decoration:underline; color:#fff;">See Umbraco Forms Documentation</a>';
 
@@ -159,54 +243,62 @@
 
         //Iterates through all the form elements found on the page to update the registered value
         function populateFieldValues(page, formValues, dataTypes) {
-            var $page = $(page);
 
-            $page.find("select").each(function () {
-                formValues[$(this).attr("id")] = $("option[value='" + $(this).val() + "']", $(this)).text();
-                dataTypes[$(this).attr("id")] = "select";
-            });
+            var selectFields = page.querySelectorAll("select");
+            for(var i=0; i<selectFields.length; i++) {
+                var field = selectFields[i];
+                formValues[field.getAttribute("id")] = field.querySelector("option[value='" + field.value + "']").innerText;
+                dataTypes[field.getAttribute("id")] = "select";
+            };
 
-            $page.find("textarea").each(function () {
-                formValues[$(this).attr("id")] = $(this).val();
-                dataTypes[$(this).attr("id")] = "textarea";
-            });
+            var textareaFields = page.querySelectorAll("textarea");
+            for(var i=0; i<textareaFields.length; i++) {
+                var field = textareaFields[i];
+                formValues[field.getAttribute("id")] = field.value;
+                dataTypes[field.getAttribute("id")] = "textarea";
+            };
 
             // clear out all saved checkbox values to we can safely append
-            $page.find("input[type=checkbox]").each(function () {
-                formValues[$(this).attr("name")] = null;
-                dataTypes[$(this).attr("id")] = "checkbox";
-            });
+            var checkboxFields = page.querySelectorAll("input[type=checkbox]");
+            for(var i=0; i<checkboxFields.length; i++) {
+                var field = checkboxFields[i];
+                formValues[field.getAttribute("name")] = null;
+                dataTypes[field.getAttribute("id")] = "checkbox";
+            };
 
-            $page.find("input").each(function () {
+            //$page.find("input").each(function () {
+            var inputFields = page.querySelectorAll("input");
+            for(var i=0; i<inputFields.length; i++) {
+                var field = inputFields[i];
 
-                if ($(this).attr('type') === "text" || $(this).attr("type") === "hidden") {
-                    formValues[$(this).attr("id")] = $(this).val();
-                    dataTypes[$(this).attr("id")] = "text";
+                if (field.getAttribute('type') === "text" || field.getAttribute("type") === "hidden") {
+                    formValues[field.getAttribute("id")] = field.value;
+                    dataTypes[field.getAttribute("id")] = "text";
                 }
 
-                if ($(this).attr('type') === "radio") {
-                    if ($(this).is(':checked')) {
-                        formValues[$(this).attr("name")] = $(this).val();
-                        dataTypes[$(this).attr("id")] = "radio";
+                if (field.getAttribute('type') === "radio") {
+                    if (field.matches(':checked')) {
+                        formValues[field.getAttribute("name")] = field.value;
+                        dataTypes[field.getAttribute("id")] = "radio";
                     }
                 }
 
-                if ($(this).attr("type") === "checkbox") {
-                    if ($(this).attr("id") !== $(this).attr("name")) {
-                        if ($(this).is(":checked")) {
-                            if (formValues[$(this).attr("name")] === null) {
-                                formValues[$(this).attr("name")] = $(this).val();
+                if (field.getAttribute("type") === "checkbox") {
+                    if (field.getAttribute("id") !== field.getAttribute("name")) {
+                        if (field.matches(":checked")) {
+                            if (formValues[field.getAttribute("name")] === null) {
+                                formValues[field.getAttribute("name")] = field.value;
                             }
                             else {
-                                formValues[$(this).attr("name")] += ";;" + $(this).val();
+                                formValues[field.getAttribute("name")] += ";;" + field.value;
                             }
                         }
                     }
                     else {
-                        formValues[$(this).attr("name")] = ($(this).is(":checked") ? "true" : "false");
+                        formValues[field.getAttribute("name")] = (field.matches(":checked") ? "true" : "false");
                     }
                 }
-            });
+            };
         }
 
         /* Public api */
@@ -229,7 +321,7 @@
                 }
 
                 var values = value.split(';;');
-                var matchingExpected = $.grep(values,
+                var matchingExpected = values.filter(
                     function (o) {
                         return o === expected;
                     });
@@ -240,7 +332,7 @@
                     return (unexpected != value);
                 }
                 var values = value.split(';;');
-                var matchingUnexpected = $.grep(values,
+                var matchingUnexpected = values.filter(
                     function (o) {
                         return o === unexpected;
                     });
@@ -275,26 +367,34 @@
             // This is a special case for pikaday
             // The only way around to pickup the value, for now, is to 
             // subscribe to blur events 
-            $('.datepickerfield', self.form).blur(function () {
-                
-                if(this.value===""){
-                    // Here comes the hack                    
-                    // Force the hidden datepicker field the datepicker field
-                    var hiddenDatePickerField=this.id.substr(0,this.id.length-2);
-                    self.values[hiddenDatePickerField]="";
-                    $("#"+hiddenDatePickerField)[0].value="";
-                }
-
-                populateFieldValues(self.form, self.values, self.dataTypes);
-                //process the conditions
-                self.run();
-            });
+            var datepickerfields = self.form.querySelectorAll('.datepickerfield');
+            for(var i = 0; i < datepickerfields.length; i++) {
+                var field = datepickerfields[i];
+                field.addEventListener('blur', function () {
+                    if(this.value===""){
+                        // Here comes the hack
+                        // Force the hidden datepicker field the datepicker field
+                        var id = this.getAttribute("id");
+                        var hiddenDatePickerField = id.substr(0, id.length-2);
+                        self.values[hiddenDatePickerField]="";
+                        document.getElementById(hiddenDatePickerField).value="";// sadly we cant use querySelector with current mark-up (would need to prefix IDs)
+                    }
+    
+                    populateFieldValues(self.form, self.values, self.dataTypes);
+                    //process the conditions
+                    self.run();
+                }.bind(field));
+            }
             //subscribe to change events
-            $("input, textarea, select", self.form).change(function () {
-                populateFieldValues(self.form, self.values, self.dataTypes);
-                //process the conditions
-                self.run();
-            });
+            var changeablefields = self.form.querySelectorAll("input, textarea, select");
+            for(var i = 0; i < changeablefields.length; i++) {
+                var field = changeablefields[i];
+                field.addEventListener("change", function () {
+                    populateFieldValues(self.form, self.values, self.dataTypes);
+                    //process the conditions
+                    self.run();
+                }.bind(field));
+            }
 
             //register all values from the current fields on the page
             populateFieldValues(self.form, self.values, self.dataTypes);
@@ -422,26 +522,30 @@
 
             function handleCondition(element, id, condition, type) {
                 var shouldShow = isVisible(id, condition);
-                if (shouldShow) {
-                    element.show();
-                }
-                else {
-                    element.hide();
+                if (element) {
+                    if (shouldShow) {
+                        element.style.display = "";
+                    }
+                    else {
+                        element.style.display = "none";
+                    }
                 }
             }
 
             for (fsId in self.fieldsetConditions) {
                 if (self.fieldsetConditions.hasOwnProperty(fsId)) {
-                    handleCondition(self.form.find("#" + fsId), fsId, self.fieldsetConditions[fsId], "Fieldset");
+                    handleCondition(document.getElementById(fsId), fsId, self.fieldsetConditions[fsId], "Fieldset");// sadly we cant use querySelector with current mark-up (would need to prefix IDs)
                 }
             }
 
             for (fieldId in self.fieldConditions) {
                 if (self.fieldConditions.hasOwnProperty(fieldId)) {
-                    handleCondition(self.form.find("#" + fieldId).closest(".umbraco-forms-field"),
-                        fieldId,
-                        self.fieldConditions[fieldId],
-                        "Field");
+                    if (document.getElementById(fieldId)) {
+                        handleCondition(document.getElementById(fieldId).closest(".umbraco-forms-field"),// sadly we cant use querySelector with current mark-up (would need to prefix IDs)
+                            fieldId,
+                            self.fieldConditions[fieldId],
+                            "Field");
+                    }
                 }
             }
         };
