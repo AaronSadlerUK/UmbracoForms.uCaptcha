@@ -3,13 +3,13 @@
   <info>
     <package>
       <name>UmbracoForms.uCaptcha</name>
-      <version>1.0.3</version>
+      <version>1.0.4</version>
       <iconUrl></iconUrl>
       <licence url="https://opensource.org/licenses/MIT">MIT</licence>
       <url>https://github.com/AaronSadlerUK/UmbracoForms.uCaptcha</url>
       <requirements type="strict">
         <major>8</major>
-        <minor>6</minor>
+        <minor>13</minor>
         <patch>0</patch>
       </requirements>
     </package>

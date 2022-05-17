@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AaronSadler.uCaptcha</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <title>UmbracoForms.uCaptcha</title>
     <authors>Aaron Sadler</authors>
     <owners>Aaron Sadler</owners>
@@ -17,9 +17,9 @@
     <tags>umbraco, umbraco-cms, hCaptcha, umbraco-forms, reCaptcha</tags>
 	<dependencies>
 	  <group targetFramework=".NETFramework4.7.2">
-		  <dependency id="UmbracoForms" version="8.7.0" />
-		  <dependency id="UmbracoForms.Core" version="8.7.0" />
-		  <dependency id="UmbracoCms" version="8.6.1" />
+		  <dependency id="UmbracoForms" version="8.7.3" />
+		  <dependency id="UmbracoForms.Core" version="8.7.3" />
+		  <dependency id="UmbracoCms" version="8.13.0" />
 	  </group>
     </dependencies>
   </metadata>
